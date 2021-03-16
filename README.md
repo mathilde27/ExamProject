@@ -1,5 +1,5 @@
 # ExamProject
-Description and motivation
+Description and motivation:
 The main purpose of the app is to identify plants via camera/picture and view information about them. 
 The care instructions must be available as part of the information. 
 The user should be able to create a collection of ones plants/flowers.

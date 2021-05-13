@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        />
+    <item
+        android:id="@+id/myplant"
+        android:title="My Plants"
+        android:enabled="true"
+        android:icon="@drawable/flower"
+        />
+    <item
+        android:id="@+id/calendar"
+        android:title="Calendar"
+        android:icon="@drawable/calendar"
+        android:enabled="true"
+        />
+</menu>

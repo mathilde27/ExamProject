@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.ExamProject" parent="Theme.MaterialComponents.DayNight.NoActionBar"> <!-- No action bar-->
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#63C867</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#FDED5A</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

@@ -8,28 +8,33 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.examproject.HomeFragment"
+        android:name="com.example.examproject.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home" />
     <fragment
         android:id="@+id/myPlantsFragment"
-        android:name="com.example.examproject.MyPlantsFragment"
+        android:name="com.example.examproject.MyPlants"
         android:label="fragment_my_plants"
-        tools:layout="@layout/fragment_my_plants" />
+        tools:layout="@layout/my_plants" />
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.examproject.CalendarFragment"
+        android:name="com.example.examproject.Calendar"
         android:label="fragment_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/calendar" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.examproject.ProfileFragment"
+        android:name="com.example.examproject.Profile"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/profile" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.examproject.SettingFragment"
+        android:name="com.example.examproject.Setting"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/setting" />
+    <fragment
+        android:id="@+id/my_plant_details"
+        android:name="com.example.examproject.My_plant_details"
+        android:label="fragment_my_plant_details"
+        tools:layout="@layout/fragment_my_plant_details" />
 
 </navigation>

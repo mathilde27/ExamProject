@@ -65,4 +65,20 @@ public class DatabaseClass extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    void updatePlant(String name, String description, String id){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        //to put data to it.
+        ContentValues cv = new ContentValues();
+        cv.put(ColumnName, name);
+        cv.put(ColumnDescription, description);
+
+        //store query result and update
+        long result = database.update(TableName, cv, "id=?", new String[]{id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

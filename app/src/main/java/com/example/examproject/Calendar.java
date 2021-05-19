@@ -55,7 +55,6 @@ public class Calendar extends AppCompatActivity {
                 return false;
             }
         });
-
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.my_toolbar); //will set the title = the app name when removing the String i hardcoded.
         setSupportActionBar(toolbar);
     }
@@ -80,5 +79,6 @@ public class Calendar extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

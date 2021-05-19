@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamProject">
-        <activity android:name=".AddPlantsActivity"></activity>
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Setting"></activity>
-        <activity android:name=".MyPlants"></activity>
-        <activity android:name=".Home"></activity>
-        <activity android:name=".Calendar"></activity>
+        <activity android:name=".UpdateMyPlants"></activity>
+        <activity android:name=".AddPlantsActivity" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Setting" />
+        <activity android:name=".MyPlants" />
+        <activity android:name=".Home" />
+        <activity android:name=".Calendar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

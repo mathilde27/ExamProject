@@ -2,13 +2,16 @@ package com.example.examproject;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +25,8 @@ import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +42,7 @@ public class MyPlants extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
     AppBarConfiguration appBarConfiguration;
+    CoordinatorLayout layout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +51,7 @@ public class MyPlants extends AppCompatActivity {
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        layout = findViewById(R.id.layout_myplants);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         //Set Home as the selected
@@ -89,6 +96,8 @@ public class MyPlants extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new Adapter(this, MyPlants.this, plantsList);
         recyclerView.setAdapter(adapter);
+        ItemTouchHelper helper = new ItemTouchHelper(callback);
+        helper.attachToRecyclerView(recyclerView);
     }
 
     private void fetchAllNotesFromDatabase() {
@@ -122,4 +131,38 @@ public class MyPlants extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            int position = viewHolder.getAdapterPosition();
+            Plant plant = adapter.getPlantsList().get(position);
+            adapter.removePlant(viewHolder.getAdapterPosition());
+            Snackbar snackbar = Snackbar.make(layout, "Plant Deleted", Snackbar.LENGTH_LONG)
+                    .setAction("UNDO", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            adapter.restorePlant(plant, position);
+                            recyclerView.scrollToPosition(position);
+                        }
+                    }).addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                        @Override
+                        public void onDismissed(Snackbar transientBottomBar, int event) {
+                            super.onDismissed(transientBottomBar, event);
+
+                            if (!(event == DISMISS_EVENT_ACTION)) {
+                                DatabaseClass db = new DatabaseClass(MyPlants.this);
+                                db.deletePlant(plant.getId());
+                            }
+                        }
+                    });
+            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.show();
+        }
+    };
 }

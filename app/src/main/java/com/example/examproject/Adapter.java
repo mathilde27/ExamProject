@@ -3,6 +3,7 @@ package com.example.examproject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,5 +66,18 @@ public class Adapter  extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             description = itemView.findViewById(R.id.plant_desc);
             layout = itemView.findViewById(R.id.plant_layout);
         }
+    }
+
+    public List<Plant> getPlantsList(){
+        return plantsList;
+    }
+    public void removePlant(int position) {
+        plantsList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void restorePlant(Plant plant, int position) {
+        plantsList.add(position, plant);
+        notifyItemInserted(position);
     }
 }

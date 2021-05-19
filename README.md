@@ -12,11 +12,11 @@ The motivation arises from my non-existing ability to keep plants alive.
 [ ] Identify plant/flower by taking a picture\
 [ ] View information about the plant    
 [ ] View care instructions about the plant  
-[ ] Add plants to a collection of some kind    
+[X] Add plants to a collection of some kind    
 [ ] Set and get reminders to care (water, rotate, mist, fertilize and similar)
 
 #### Should have:
-[ ] Able to edit names of the plants in "my collection"\
+[X] Able to edit names of the plants in "my collection"\
 [ ] Calendar to review reminders\
 [ ] Keep a report/timeline (add notes and pictures) 
 

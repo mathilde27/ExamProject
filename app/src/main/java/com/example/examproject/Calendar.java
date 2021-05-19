@@ -9,27 +9,73 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class Calendar extends AppCompatActivity {
+public class Calendar extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
-    MainActivity main = new MainActivity();
+    //MainActivity main = new MainActivity();
     Toolbar toolbar;
     AppBarConfiguration appBarConfiguration;
+    EditText name, careDesc;
+    Button addToCalendar;
+    Spinner spinner;
+    String repetition;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
+
+        name = findViewById(R.id.plantname);
+        careDesc = findViewById(R.id.caredesc);
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.repetition, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+        addToCalendar = findViewById(R.id.add_to_calendar);
+
+        addToCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!name.getText().toString().isEmpty() && !careDesc.getText().toString().isEmpty()){
+
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, name.getText().toString());
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, careDesc.getText().toString());
+                    intent.putExtra(CalendarContract.Events.RRULE, repetition);
+                    intent.putExtra(CalendarContract.Reminders.HAS_ALARM, true); // not doing anything right now 
+
+                    if(intent.resolveActivity(getPackageManager()) != null){
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(Calendar.this, "There is no app that support this action", Toast.LENGTH_SHORT).show();
+                    }
+
+                    } else {
+                Toast.makeText(Calendar.this, "All the fields are required",
+                        Toast.LENGTH_SHORT).show();
+            }
+            }
+        });
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         //Set Home as the selected
@@ -81,4 +127,24 @@ public class Calendar extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if(position == 0){
+            repetition = "FREQ=DAILY;";
+        }
+        if(position == 1){
+            repetition = "FREQ=WEEKLY;";
+        }
+        if(position == 2){
+            repetition = "FREQ=MONTHLY;";
+        }
+        if(position == 3){
+            repetition = null;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

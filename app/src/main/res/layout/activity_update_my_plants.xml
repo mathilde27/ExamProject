@@ -11,13 +11,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:hint="Name"
+        android:maxLines="1"
         android:id="@+id/plant_name"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Description"
+        android:minLines="3"
+        android:hint="Type in information about plant. How is it doing, how often does it need water and more!"
         android:id="@+id/plant_desc"
         android:layout_below="@id/plant_name"/>
 

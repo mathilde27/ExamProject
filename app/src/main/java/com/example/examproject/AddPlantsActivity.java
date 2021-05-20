@@ -31,13 +31,13 @@ public class AddPlantsActivity extends AppCompatActivity {
                     DatabaseClass db = new DatabaseClass(AddPlantsActivity.this);
                     db.addPlants(name.getText().toString(), description.getText().toString());
 
-                    Intent intent = new Intent(AddPlantsActivity.this, MyPlants.class); //will be moved to main activity?? But wants fragment instead - where the recycler view is located.
+                    Intent intent = new Intent(AddPlantsActivity.this, MyPlants.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
 
                 } else {
-                    Toast.makeText(AddPlantsActivity.this, "Both Fields Required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPlantsActivity.this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });

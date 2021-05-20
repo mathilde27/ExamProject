@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context = ".MainActivity">
+    tools:context = ".Home">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/my_toolbar"
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Type in your plant!"
-            android:textStyle="bold"
+            android:text="Welcome to Plant Care!"
+            android:textStyle="bold|italic"
             android:textSize="30sp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Welcome to this app! It will help you to take care of your plants. Soon a button will be implmented so you can add a new plant to your collection. Enjoy!"
+            android:text="This app will help you to take care of your plants. Under MyPlants you can add your plants. In calendar you can add a new event to your calendar so you will remember to take care of them. Enjoy!"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="15dp"
-            android:text="Here you can add a reminder to your google calendar so you don't forget to water and take care of your plants"
+            android:text="Here you can add a reminder to your calendar so you don't forget to water and take care of your plants"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"

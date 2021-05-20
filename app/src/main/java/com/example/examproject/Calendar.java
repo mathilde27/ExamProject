@@ -62,23 +62,21 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                     intent.putExtra(CalendarContract.Events.TITLE, name.getText().toString());
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, careDesc.getText().toString());
                     intent.putExtra(CalendarContract.Events.RRULE, repetition);
-                    intent.putExtra(CalendarContract.Reminders.HAS_ALARM, true); // not doing anything right now
 
                     if(intent.resolveActivity(getPackageManager()) != null){
                         startActivity(intent);
                     }else {
-                        Toast.makeText(Calendar.this, "There is no app that support this action", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Calendar.this, "Oops, something happened. No calender app?", Toast.LENGTH_SHORT).show();
                     }
 
                     } else {
-                Toast.makeText(Calendar.this, "All the fields are required",
+                Toast.makeText(Calendar.this, "Please fill in all fields",
                         Toast.LENGTH_SHORT).show();
             }
             }
         });
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        //Set Home as the selected
         bottomNavigationView.setSelectedItemId(R.id.calendar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -101,7 +99,7 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                 return false;
             }
         });
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.my_toolbar); //will set the title = the app name when removing the String i hardcoded.
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
     }
     //implements the menu
@@ -110,13 +108,13 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    //What to do when items in setting is clicked. Should obviously not do this but take the user to a new page
+    //What to do when items in setting is clicked.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId =item.getItemId();
 
         if (itemId == R.id.profile){
-            Intent intent = new Intent(Calendar.this, Profile.class); //this starts the activity add plant with the view. But this should be located in myplantfragment
+            Intent intent = new Intent(Calendar.this, Profile.class);
             startActivity(intent);
         }
         if (itemId == R.id.setting){

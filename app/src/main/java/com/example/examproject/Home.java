@@ -33,7 +33,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        //Set Home as the selected
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -55,15 +54,14 @@ public class Home extends AppCompatActivity {
                 return false;
             }
         });
-        Toolbar toolbar = findViewById(R.id.my_toolbar); //will set the title = the app name when removing the String i hardcoded.
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) { // sets the top menu
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    //What to do when items in setting is clicked. Should obviously not do this but take the user to a new page
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId =item.getItemId();

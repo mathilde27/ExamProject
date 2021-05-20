@@ -28,11 +28,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Toolbar toolbar;
-    BottomNavigationView bottomNavigationView;
-    NavController navController;
-    AppBarConfiguration appBarConfiguration;
-
     private TextView register;
     private EditText editEmail, editPassword;
     private Button signIn;
@@ -104,56 +99,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
-//        bottomNavigationView = findViewById(R.id.bottom_navigation);
-//        //Set Home as the selected
-//        bottomNavigationView.setSelectedItemId(R.id.home);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()){
-//                    case R.id.home:
-//                        return true;
-//                    case R.id.myplant:
-//                        startActivity(new Intent(getApplicationContext()
-//                        , MyPlants.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
-//                    case R.id.calendar:
-//                        startActivity(new Intent(getApplicationContext()
-//                                , Calendar.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
-//                }
-//
-//                return false;
-//            }
-//        });
-//
-//        Toolbar toolbar = findViewById(R.id.my_toolbar); //will set the title = the app name when removing the String i hardcoded.
-//        setSupportActionBar(toolbar);
-//    }
-//
-//    //implements the menu
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) { // sets the top menu
-//        getMenuInflater().inflate(R.menu.top_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//    //What to do when items in setting is clicked. Should obviously not do this but take the user to a new page
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int itemId =item.getItemId();
-//
-//       if (itemId == R.id.profile){
-//           Intent intent = new Intent(MainActivity.this, Profile.class);
-//           startActivity(intent);
-//        }
-//        if (itemId == R.id.setting){
-//            Intent intent = new Intent(MainActivity.this, Setting.class);
-//            startActivity(intent);
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
 }

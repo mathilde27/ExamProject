@@ -21,22 +21,20 @@ public class Setting extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) { // sets the top menu
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    //What to do when items in setting is clicked. Should obviously not do this but take the user to a new page
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId =item.getItemId();
 
         if (itemId == R.id.profile){
-            Intent intent = new Intent(Setting.this, Profile.class); //this starts the activity add plant with the view. But this should be located in myplantfragment
+            Intent intent = new Intent(Setting.this, Profile.class);
             startActivity(intent);
         }
         if (itemId == R.id.setting){
-            Intent intent = new Intent(Setting.this, Setting.class);
-            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

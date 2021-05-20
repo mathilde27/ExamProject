@@ -54,7 +54,6 @@ public class MyPlants extends AppCompatActivity {
         layout = findViewById(R.id.layout_myplants);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        //Set Home as the selected
         bottomNavigationView.setSelectedItemId(R.id.myplant);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -73,18 +72,16 @@ public class MyPlants extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                 }
-
                 return false;
             }
         });
-        //new shit - should be in my plant fragment somehow
         recyclerView = findViewById(R.id.recycler_view);
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPlants.this, AddPlantsActivity.class); //this starts the activity add plant with the view. But this should be located in myplantfragment
+                Intent intent = new Intent(MyPlants.this, AddPlantsActivity.class);
                 startActivity(intent);
             }
         });
@@ -104,7 +101,7 @@ public class MyPlants extends AppCompatActivity {
         Cursor cursor = databaseClass.readAllData();
 
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No Data to show", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No plants yet, add now!", Toast.LENGTH_LONG).show();
         } else {
             while (cursor.moveToNext()) {
                 plantsList.add(new Plant(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
@@ -112,17 +109,17 @@ public class MyPlants extends AppCompatActivity {
         }
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) { // sets the top menu
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    //What to do when items in setting is clicked. Should obviously not do this but take the user to a new page
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId =item.getItemId();
 
         if (itemId == R.id.profile){
-            Intent intent = new Intent(MyPlants.this, Profile.class); //this starts the activity add plant with the view. But this should be located in myplantfragment
+            Intent intent = new Intent(MyPlants.this, Profile.class);
             startActivity(intent);
         }
         if (itemId == R.id.setting){

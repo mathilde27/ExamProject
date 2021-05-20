@@ -49,7 +49,7 @@ public class DatabaseClass extends SQLiteOpenHelper {
         long resultValue = db.insert(TableName, null, cv);
 
         if (resultValue == -1) {
-            Toast.makeText(context, "Data Not Added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Oops, couldn't add data", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Data Added Successfully", Toast.LENGTH_SHORT).show();
         }
@@ -86,9 +86,9 @@ public class DatabaseClass extends SQLiteOpenHelper {
 
         long result = database.delete(TableName, "id=?", new String[]{id});
         if (result == -1) {
-            Toast.makeText(context, "Item Not Deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Oops, item Not Deleted", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Item Deleted Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Item Deleted Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
 }

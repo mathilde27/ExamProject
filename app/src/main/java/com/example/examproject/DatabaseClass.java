@@ -51,7 +51,7 @@ public class DatabaseClass extends SQLiteOpenHelper {
         if (resultValue == -1) {
             Toast.makeText(context, "Oops, couldn't add data", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Data Added Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Plant Added Successfully", Toast.LENGTH_SHORT).show();
         }
     }
 

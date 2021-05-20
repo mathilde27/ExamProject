@@ -29,7 +29,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Calendar extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
-    //MainActivity main = new MainActivity();
     Toolbar toolbar;
     AppBarConfiguration appBarConfiguration;
     EditText name, careDesc;
@@ -50,6 +49,7 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
         addToCalendar = findViewById(R.id.add_to_calendar);
 
         addToCalendar.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                     intent.putExtra(CalendarContract.Events.TITLE, name.getText().toString());
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, careDesc.getText().toString());
                     intent.putExtra(CalendarContract.Events.RRULE, repetition);
-                    intent.putExtra(CalendarContract.Reminders.HAS_ALARM, true); // not doing anything right now 
+                    intent.putExtra(CalendarContract.Reminders.HAS_ALARM, true); // not doing anything right now
 
                     if(intent.resolveActivity(getPackageManager()) != null){
                         startActivity(intent);
@@ -93,7 +93,7 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext()
-                                , MainActivity.class));
+                                , Home.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

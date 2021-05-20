@@ -16,13 +16,77 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="Plant Care" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize">
+        <TextView
+            android:id="@+id/Greeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:padding="7dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/emailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email Address:"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/Greeting"/>
+        <TextView
+            android:id="@+id/emailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/emailTitle"/>
+        <TextView
+            android:id="@+id/fullnametitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full name:"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/emailAddress"/>
+        <TextView
+            android:id="@+id/fullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/fullnametitle"/>
+
+        <Button
+            android:id="@+id/signOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="63dp"
+            android:padding="10dp"
+            android:text="Log out"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

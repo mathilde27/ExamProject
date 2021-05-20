@@ -6,6 +6,9 @@ The user should be able to create a collection of ones plants/flowers.
 Reminders to e.g. water the plants is a key feature of the application.   
 The motivation arises from my non-existing ability to keep plants alive. 
 
+Link to youtube video:
+https://youtu.be/VzBTNLKFw6E
+
 
 ### Requirements
 #### Must have:
@@ -13,12 +16,12 @@ The motivation arises from my non-existing ability to keep plants alive.
 [ ] View information about the plant    
 [ ] View care instructions about the plant  
 [X] Add plants to a collection of some kind    
-[ ] Set and get reminders to care (water, rotate, mist, fertilize and similar)
+[x] Set and get reminders to care (water, rotate, mist, fertilize and similar)
 
 #### Should have:
 [X] Able to edit names of the plants in "my collection"\
-[ ] Calendar to review reminders\
-[ ] Keep a report/timeline (add notes and pictures) 
+[x] Calendar to review reminders\
+[x] Keep a report/timeline (add notes and pictures) 
 
 #### Could have:
 [ ] Saves the pictures one takes\
